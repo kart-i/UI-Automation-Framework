@@ -1,6 +1,6 @@
 package org.example.utils;
 
-import org.example.page.methods.FlipkartLoginPageActions;
+import org.example.page.methods.LoginPageActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.FileInputStream;
-import java.time.Duration;
 import java.util.Properties;
 
 
@@ -22,7 +21,7 @@ public class DriverManager {
    public WebDriver driver;
    Properties properties;
 
-   public FlipkartLoginPageActions Login;
+   public LoginPageActions Login;
 
    public DriverManager() {
        try{
@@ -77,7 +76,7 @@ public class DriverManager {
    }
 
    public void intializeAllPages(){
-       Login = PageFactory.initElements(driver, FlipkartLoginPageActions.class);
+       Login = PageFactory.initElements(driver, LoginPageActions.class);
    }
 
    public void setup() throws IOException {

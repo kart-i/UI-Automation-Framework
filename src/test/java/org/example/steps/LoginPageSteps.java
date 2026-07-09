@@ -4,23 +4,18 @@ import io.cucumber.java.en.*;
 import org.example.utils.DriverManager;
 import java.io.IOException;
 
-public class FlipkartLoginSteps {
+public class LoginPageSteps {
 
 
     public DriverManager test;
 
-    public FlipkartLoginSteps(DriverManager test) throws Exception {
+    public LoginPageSteps(DriverManager test) throws Exception {
         this.test = test;
     }
 
-    @Given("User launches the Flipkart application")
+    @Given("User launches the Saucedemo application")
     public void user_launches_flipkart_application() throws IOException {
         test.launchApplication();
-    }
-
-    @Given("User is on the Flipkart home page")
-    public void user_is_on_flipkart_home_page() {
-        test.Login.verifyFlipkartHomePage();
     }
 
     @When("User clicks on the login button")
@@ -33,9 +28,9 @@ public class FlipkartLoginSteps {
         test.Login.verifyLoginModalVisible();
     }
 
-    @When("User enters valid email address")
-    public void user_enters_valid_email_address() {
-        test.Login.enterValidEmail();
+    @When("User enters valid username")
+    public void user_enters_valid_username() {
+        test.Login.enterValidUsername();
     }
 
     @When("User enters valid password")

@@ -2,27 +2,21 @@ package org.example.page.methods;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
-import org.example.page.webelements.FlipkartLoginPage;
+import org.example.page.webelements.LoginPageElements;
 
 
-public class FlipkartLoginPageActions extends FlipkartLoginPage {
+public class LoginPageActions extends LoginPageElements {
     public WebDriver driver;
     private WebDriverWait wait;
 
 
-    public FlipkartLoginPageActions(WebDriver driver) {
+    public LoginPageActions(WebDriver driver) {
         super(driver);
         this.wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
-    }
-
-    public boolean verifyFlipkartHomePage() {
-        return flipkartLogo.isDisplayed();
-
     }
 
     public void clickLoginButton() {
@@ -33,12 +27,12 @@ public class FlipkartLoginPageActions extends FlipkartLoginPage {
     }
 
     public boolean verifyLoginModalVisible() {
-        return emailField.isDisplayed();
+        return usernameField.isDisplayed();
     }
 
-    public void enterValidEmail() {
-        emailField.clear();
-        emailField.sendKeys("testuser@gmail.com");
+    public void enterValidUsername() {
+        usernameField.clear();
+        usernameField.sendKeys("standard_user");
     }
 
     public void enterValidPassword() {

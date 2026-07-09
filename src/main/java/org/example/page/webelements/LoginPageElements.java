@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class FlipkartLoginPage {
+public class LoginPageElements {
 
     public WebDriver driver;
 
-    public FlipkartLoginPage(WebDriver driver) {
+    public LoginPageElements(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -18,8 +18,8 @@ public class FlipkartLoginPage {
     @FindBy(xpath = "//a[contains(text(), 'Login')]")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//input[@type='text' and @placeholder='Email']")
-    public WebElement emailField;
+    @FindBy(xpath = "//input[@id='user-name']")
+    public WebElement usernameField;
 
     @FindBy(xpath = "//input[@type='password']")
     public WebElement passwordField;

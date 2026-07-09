@@ -1,3 +1,4 @@
+@Login
 Feature: Flipkart Login Automation
 
   Background:

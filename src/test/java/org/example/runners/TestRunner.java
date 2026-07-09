@@ -5,17 +5,17 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-    features = "src/test/java/Resources/featureFiles",
-    glue = "org.example.steps",
-    plugin = {
+        features = "src/test/resources/featureFiles",
+        glue = {"org.example.steps", "org.example.hooks"},
+        tags = "@Login",
+        plugin = {
         "pretty",
         "html:target/cucumber-reports/report.html",
         "json:target/cucumber-reports/report.json",
-        "junit:target/cucumber-reports/report.xml"
-    },
-    monochrome = true,
-    dryRun = false
-
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/extent-reports/extent-report.html"
+        },
+        monochrome = true,
+        dryRun = false
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override

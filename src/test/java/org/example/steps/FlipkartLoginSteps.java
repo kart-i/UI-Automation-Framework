@@ -2,13 +2,7 @@ package org.example.steps;
 
 import io.cucumber.java.en.*;
 import org.example.utils.DriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.IOException;
-import java.time.Duration;
-import org.example.page.methods.FlipkartLoginPageActions;
 
 public class FlipkartLoginSteps {
 

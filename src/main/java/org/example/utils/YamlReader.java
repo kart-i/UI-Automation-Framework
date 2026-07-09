@@ -12,7 +12,7 @@ public class YamlReader {
     public  static Properties properties;
     public static String setYamlFilePath() throws IOException {
         properties = new Properties();
-        InputStream propStream = new FileInputStream("src"+ File.separator+"test"+File.separator+"java"+File.separator+"resources"+File.separator+"configuration"+File.separator+"config.properties");
+        InputStream propStream = new FileInputStream("src"+ File.separator+"test"+File.separator+"resources"+File.separator+"configuration"+File.separator+"config.properties");
         try {
             properties.load(propStream);
             } catch (IOException e) {
@@ -21,7 +21,7 @@ public class YamlReader {
 
         String environment = System.getProperty("Environment") != null ? System.getProperty("Environment") : properties.getProperty("Environment");
         if (environment.equalsIgnoreCase("staging") || environment.equalsIgnoreCase("Stage")) {
-            yamlFilePath = "src/test/java/resources/testdata/stagedata.yaml";
+            yamlFilePath = "src/test/resources/testdata/stagedata.yaml";
         }
         return yamlFilePath;
     }

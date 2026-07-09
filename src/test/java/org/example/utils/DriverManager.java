@@ -47,7 +47,7 @@ public class DriverManager {
    }
    public void setupDriver() throws IOException {
        properties = new Properties();
-       InputStream propStream = new FileInputStream("src"+ File.separator+"test"+File.separator+"java"+File.separator+"resources"+File.separator+"configuration"+File.separator+"config.properties");
+       InputStream propStream = new FileInputStream("src"+ File.separator+"test"+File.separator+"resources"+File.separator+"configuration"+File.separator+"config.properties");
        try {
            properties.load(propStream);
        } catch (IOException e) {

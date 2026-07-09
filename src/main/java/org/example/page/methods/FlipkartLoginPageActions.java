@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.PageFactory;
 import org.example.page.webelements.FlipkartLoginPage;
-import static org.testng.Assert.*;
+
 
 public class FlipkartLoginPageActions extends FlipkartLoginPage {
     public WebDriver driver;
@@ -20,9 +20,9 @@ public class FlipkartLoginPageActions extends FlipkartLoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void verifyFlipkartHomePage() {
-        flipkartLogo.isDisplayed();
-        assertNotNull(flipkartLogo, "Flipkart home page not loaded");
+    public boolean verifyFlipkartHomePage() {
+        return flipkartLogo.isDisplayed();
+
     }
 
     public void clickLoginButton() {
@@ -32,10 +32,8 @@ public class FlipkartLoginPageActions extends FlipkartLoginPage {
         loginButton.click();
     }
 
-    public void verifyLoginModalVisible() {
-//        wait.until(
-//            ExpectedConditions.presenceOf(emailField));
-        assertTrue(emailField.isDisplayed(), "Login form is not visible");
+    public boolean verifyLoginModalVisible() {
+        return emailField.isDisplayed();
     }
 
     public void enterValidEmail() {
@@ -55,15 +53,14 @@ public class FlipkartLoginPageActions extends FlipkartLoginPage {
         submitButton.click();
     }
 
-    public void verifyUserLoggedInSuccessfully() {
+    public boolean verifyUserLoggedInSuccessfully() {
         wait.until(ExpectedConditions.urlContains("flipkart.com"));
-        boolean loginButtonVisible = driver.findElements(By.xpath("//a[contains(text(), 'Login')]")).isEmpty();
-        assertTrue(loginButtonVisible, "User is not logged in");
+        return driver.findElements(By.xpath("//a[contains(text(), 'Login')]")).isEmpty();
     }
 
-    public void verifyUserProfileVisible() {
-        userProfile.isDisplayed();
-        assertTrue(userProfile.isDisplayed(), "User profile is not visible in header");
+    public boolean verifyUserProfileVisible() {
+        return userProfile.isDisplayed();
+
     }
 }
 

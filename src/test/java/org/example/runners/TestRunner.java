@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
         "pretty",
         "html:target/cucumber-reports/report.html",
         "json:target/cucumber-reports/report.json",
-        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:target/extent-reports/extent-report.html"
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         monochrome = true,
         dryRun = false

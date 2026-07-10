@@ -38,9 +38,9 @@ public class LoginPageSteps {
         test.Login.enterValidPassword();
     }
 
-    @When("User clicks the submit button")
-    public void user_clicks_submit_button() {
-        test.Login.clickSubmitButton();
+    @When("User clicks the login button")
+    public void user_clicks_login_button() {
+        test.Login.clickLoginButton();
     }
 
     @Then("User should be logged in successfully")

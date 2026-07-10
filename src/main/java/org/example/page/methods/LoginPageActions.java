@@ -48,8 +48,8 @@ public class LoginPageActions extends LoginPageElements {
     }
 
     public boolean verifyUserLoggedInSuccessfully() {
-        wait.until(ExpectedConditions.urlContains("flipkart.com"));
-        return driver.findElements(By.xpath("//a[contains(text(), 'Login')]")).isEmpty();
+        wait.until(ExpectedConditions.urlContains("https://www.saucedemo.com/inventory.html"));
+        return driver.findElement(By.cssSelector(".title")).isDisplayed();
     }
 
     public boolean verifyUserProfileVisible() {

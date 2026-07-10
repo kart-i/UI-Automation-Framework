@@ -24,7 +24,7 @@ public class LoginPageElements {
     @FindBy(xpath = "//input[@type='password']")
     public WebElement passwordField;
 
-    @FindBy(xpath = "//button[contains(text(), 'Login') or contains(text(), 'Continue')]")
+    @FindBy(xpath = "//input[@id='login-button']")
     public WebElement submitButton;
 
     @FindBy(xpath = "//a[@href='#profile']")

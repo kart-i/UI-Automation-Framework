@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 
 import static org.example.utils.YamlReader.getDataFromYaml;
@@ -20,11 +21,13 @@ import java.util.Properties;
 public class DriverManager {
    public WebDriver driver;
    Properties properties;
+   private  SoftAssert softAssert;
 
    public LoginPageActions Login;
 
    public DriverManager() {
        try{
+           LoggerUtil.info("------Test Execution Started------");
            setup();
        } catch (IOException e) {
            throw new RuntimeException(e);
@@ -55,8 +58,10 @@ public class DriverManager {
         String browser = System.getProperty("browser", "chrome");
        if (browser.equalsIgnoreCase("chrome")) {
            driver = getChromeDriver();
+           LoggerUtil.info("Chrome browser is launched");
        } else if (browser.equalsIgnoreCase("firefox")) {
            driver = getFirefoxDriver();
+           LoggerUtil.info("Firefox browser is launched");
        } else {
            throw new IllegalArgumentException("Unsupported browser: " + browser);
        }
@@ -66,10 +71,13 @@ public class DriverManager {
          String url = null;
          try{
              url = System.getProperty("url");
+             LoggerUtil.info("URL from system property: " + url);
              if (url == null || url.isEmpty()) {
                  url = getDataFromYaml("url");
+                    LoggerUtil.info("URL from YAML: " + url);
              }
          } catch (Exception e) {
+             LoggerUtil.error("Error occurred while fetching URL: " + e.getMessage());
              e.printStackTrace();
          }
          return url;
@@ -96,6 +104,14 @@ public class DriverManager {
          driver.get(url);
          driver.manage().window().maximize();
          intializeAllPages();
+    }
+
+    public void setupSoftAssert(SoftAssert softAssert) {
+        this.softAssert = new SoftAssert();
+    }
+
+    public SoftAssert getSoftAssert() {
+       return softAssert;
     }
 
 }

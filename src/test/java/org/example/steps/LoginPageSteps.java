@@ -18,11 +18,6 @@ public class LoginPageSteps {
         test.launchApplication();
     }
 
-    @When("User clicks on the login button")
-    public void user_clicks_on_login_button() {
-        test.Login.clickLoginButton();
-    }
-
     @Then("User should see the login modal or page")
     public void user_should_see_login_modal() {
         test.Login.verifyLoginModalVisible();

@@ -1,5 +1,6 @@
 package org.example.page.methods;
 
+import org.example.utils.LoggerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,13 +20,6 @@ public class LoginPageActions extends LoginPageElements {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickLoginButton() {
-        wait.until(
-            ExpectedConditions.elementToBeClickable(loginButton)
-        );
-        loginButton.click();
-    }
-
     public boolean verifyLoginModalVisible() {
         return usernameField.isDisplayed();
     }
@@ -40,11 +34,15 @@ public class LoginPageActions extends LoginPageElements {
         passwordField.sendKeys("Test@12345");
     }
 
-    public void clickSubmitButton() {
+    public void clickLoginButton() {
+        try{
         wait.until(
             ExpectedConditions.elementToBeClickable(submitButton)
         );
         submitButton.click();
+        } catch (Exception e) {
+            LoggerUtil.error("Error occurred while clicking submit button: " + e.getMessage());
+        }
     }
 
     public boolean verifyUserLoggedInSuccessfully() {

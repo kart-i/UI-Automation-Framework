@@ -23,5 +23,17 @@ steps:
 - task: PublishPipelineArtifact@1
   condition: always()
   inputs:
-    targetPath: 'target'
-    artifact: 'AutomationArtifacts'
+    targetPath: 'target/extent-reports'
+    artifact: 'ExtentReport'
+
+- task: PublishPipelineArtifact@1
+  condition: always()
+  inputs:
+    targetPath: 'target/logs'
+    artifact: 'Logs'
+
+- task: PublishPipelineArtifact@1
+  condition: always()
+  inputs:
+    targetPath: 'target/screenshots'
+    artifact: 'Screenshots'
